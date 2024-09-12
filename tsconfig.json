@@ -4,6 +4,10 @@
   "exclude": ["node_modules/*", "__sapper__/*", "static/*"],
   "compilerOptions": {
     /* Apply tslib to reduce bundle size */
-    "importHelpers": true
+    "importHelpers": true,
+    /* esbuild-loader recommendation */
+    "isolatedModules": true,
+    "esModuleInterop": true
+    /* Ref. https://github.com/privatenumber/esbuild-loader#caveats */
   }
 }
