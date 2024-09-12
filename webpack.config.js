@@ -1,10 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const sveltePreprocess = require('svelte-preprocess');
-const { EsbuildPlugin } = require('esbuild-loader');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { resolveToEsbuildTarget } = require('esbuild-plugin-browserslist');
-const browserslist = require('browserslist');
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -29,14 +26,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(j|t)s$/,
+        test: /\.(?:js|mjs|cjs|ts)$/,
         exclude: /node_modules/,
-        use: [{ loader: 'esbuild-loader', options: { target: resolveToEsbuildTarget(browserslist()) } }],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.svelte$/,
         use: [
-          { loader: 'esbuild-loader', options: { loader: 'js', target: resolveToEsbuildTarget(browserslist()) } },
+          { loader: 'babel-loader' },
           {
             loader: 'svelte-loader',
             options: {
@@ -69,13 +66,5 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-  },
-  optimization: {
-    minimizer: [
-      new EsbuildPlugin({
-        target: resolveToEsbuildTarget(browserslist()),
-        css: true, // Apply minification to CSS assets
-      }),
-    ],
   },
 };

@@ -5,9 +5,12 @@
   "compilerOptions": {
     /* Apply tslib to reduce bundle size */
     "importHelpers": true,
-    /* esbuild-loader recommendation */
-    "isolatedModules": true,
-    "esModuleInterop": true
-    /* Ref. https://github.com/privatenumber/esbuild-loader#caveats */
+    /* Babel with TypeScript */
+    // Ensure that .d.ts files are created by tsc, but not .js files
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    // Ensure that Babel can safely transpile files in the TypeScript project
+    "isolatedModules": true
+    /* Ref. https://www.typescriptlang.org/docs/handbook/babel-with-typescript.html */
   }
 }

@@ -1,0 +1,4 @@
+{
+  "plugins": ["@babel/plugin-transform-runtime", ["polyfill-corejs3", { "method": "usage-pure", "version": "3.38", "proposals": true }]],
+  "presets": ["@babel/preset-env", "@babel/preset-typescript"]
+}
