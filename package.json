@@ -31,11 +31,14 @@
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.5.0",
     "webpack": "^5.94.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.1.0"
+    "webpack-dev-server": "^5.1.0",
+    "webpackbar": "^6.0.1"
   },
   "scripts": {
     "build": "webpack --config ./webpack/webpack.config.js --mode=production",
+    "build:analysis": "webpack --config ./webpack/webpack.config.js --mode=production --env analysis",
     "dev": "webpack serve --config ./webpack/webpack.config.js --mode=development",
     "validate": "svelte-check",
     "lint": "eslint src/",

@@ -24,18 +24,19 @@ const common = (mode) =>
     parts.typescriptOrJavascript(),
     parts.css(),
     parts.typeCheck(),
+    parts.webpackBar(),
   ]);
 
 const development = merge([parts.devServer()]);
 
-const production = merge([]);
+const production = ({ analysis }) => merge([analysis && parts.analysis()].filter(Boolean));
 
 module.exports = (env, argv) => {
   const { mode } = argv;
 
   switch (mode) {
     case 'production':
-      return merge(common(mode), production, { mode });
+      return merge(common(mode), production(env), { mode });
     case 'development':
       return merge(common(mode), development, { mode });
     default:

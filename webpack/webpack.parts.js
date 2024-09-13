@@ -2,6 +2,8 @@ const path = require('node:path');
 const sveltePreprocess = require('svelte-preprocess');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const WebpackBar = require('webpackbar');
 
 exports.devServer = () => ({
   devtool: 'eval-source-map',
@@ -91,4 +93,16 @@ exports.css = () => ({
 
 exports.typeCheck = () => ({
   plugins: [new ForkTsCheckerWebpackPlugin()],
+});
+
+exports.analysis = () => ({
+  plugins: [
+    new BundleAnalyzerPlugin({
+      generateStatsFile: false,
+    }),
+  ],
+});
+
+exports.webpackBar = () => ({
+  plugins: [new WebpackBar()],
 });
