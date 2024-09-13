@@ -22,6 +22,9 @@
     "mini-css-extract-plugin": "^2.9.1",
     "prettier": "^3.3.3",
     "prettier-plugin-svelte": "^3.2.6",
+    "sass": "^1.78.0",
+    "sass-loader": "^16.0.1",
+    "style-loader": "^4.0.0",
     "svelte": "3.46.4",
     "svelte-check": "^4.0.1",
     "svelte-eslint-parser": "^0.41.0",
@@ -34,6 +37,7 @@
     "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0",
+    "webpack-merge": "^6.0.1",
     "webpackbar": "^6.0.1"
   },
   "scripts": {
@@ -51,5 +55,9 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.25.6"
+  },
+  "//sass-embedded": "MARK: - Using optionalDependencies means that sass-loader can fallback to sass when running on an operating system not supported by sass-embedded",
+  "optionalDependencies": {
+    "sass-embedded": "^1.78.0"
   }
 }

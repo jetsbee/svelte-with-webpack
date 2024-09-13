@@ -22,7 +22,7 @@ const common = (mode) =>
      */
     parts.svelte(mode),
     parts.typescriptOrJavascript(),
-    parts.css(),
+    parts.css(mode),
     parts.typeCheck(),
     parts.webpackBar(),
   ]);
