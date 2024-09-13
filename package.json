@@ -53,8 +53,9 @@
     "safari >= 11",
     "defaults"
   ],
+  "//@babel/runtime-corejs3": "https://babeljs.io/docs/babel-plugin-transform-runtime#corejs",
   "dependencies": {
-    "@babel/runtime": "^7.25.6"
+    "@babel/runtime-corejs3": "^7.25.6"
   },
   "//sass-embedded": "MARK: - Using optionalDependencies means that sass-loader can fallback to sass when running on an operating system not supported by sass-embedded",
   "optionalDependencies": {
